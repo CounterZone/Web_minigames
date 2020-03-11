@@ -79,7 +79,8 @@
       }
       function move(direc){
 
-        if( extend(direc)){ tail=(tail+1)%max_size;}
+        if( extend(direc)){ tail=(tail+1)%max_size;return true;}
+        return false;
       }
       function draw(){
         pen.clearRect(0,0,board_width,board_width)
@@ -103,15 +104,14 @@
       key=event.key.toLowerCase();
       if (event.altKey || event.ctrlKey)event.preventDefault();
       if (event.altKey && "wasd".includes(key)){
-        moves.push("e");
-        extend(key);}
+        if (extend(key))moves.push("e");}
         else if (key=="s" && event.ctrlKey)
       save=[head,tail,snake.map((a)=>{return a.slice();})];
       else if (key=="z" && event.ctrlKey)undo();
        else if (key=="l" && event.ctrlKey){
         snake=save[2].map((a)=>{return a.slice();});
         head=save[0];tail=save[1];
-      }else if("wasd".includes(key)){ moves.push(snake[tail].slice());move(key);}
+      }else if("wasd".includes(key)){ if(move(key))moves.push(snake[tail].slice());;}
       draw();
       }
       )
