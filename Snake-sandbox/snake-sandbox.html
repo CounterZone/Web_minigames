@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>snake</title>
+  </head>
+  <body>
+
+    <canvas id="board" style="border:1px solid black; width:40%" ></canvas>
+    <span style="display:inline-block">
+<p>WASD=>Move the snake</p>
+<p>Alt+WASD=>Extend the snake</p>
+
+<p>Ctrl+S=>Save current state</p>
+<p>Ctrl+L=>load saved state</p>
+<p>Ctrl+Z=>undo</p>
+    </span>
+
+    <div>
+    Size:
+    <input id="size" type="number" value="10">
+    <button id="reset">Reset</button>
+
+  </div>
+      <script src="snake.js">
+      </script>
+  </body>
+</html>
